@@ -43,6 +43,8 @@ public class Movimiento : MonoBehaviour
         fisicas.AddForce(eje_z * velocidad_de_movimiento * transform.forward);
         transform.Rotate(transform.rotation.x, eje_rotacion * velocidad_de_rotacion, transform.rotation.z);
     }
-    #endregion
 
+    #endregion
+   
+    
 }
