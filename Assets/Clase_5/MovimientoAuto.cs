@@ -29,11 +29,13 @@ public class MovimientoAuto : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstaculo"))
+        {
             VolverAlPrincipio();
+        }
     }
 
     private void VolverAlPrincipio()
     {
-        transform.position = posicion_inicial; 
+        transform.position = posicion_inicial;  
     }
 }

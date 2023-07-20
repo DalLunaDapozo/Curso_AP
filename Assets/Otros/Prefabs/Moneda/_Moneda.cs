@@ -14,7 +14,6 @@ public class _Moneda : MonoBehaviour
 
     void Update()
     {
-        
         //FUNCION PARA QUE LA MONEDA GIRE ALREDEDOR SUYO
         transform.Rotate(velocidad_rotacion, 0, 0);    
     }
@@ -26,7 +25,7 @@ public class _Moneda : MonoBehaviour
         //LA FUNCION Instantiate() TIENE TRES PARÁMETROS:
         //    LO QUE VAMOS A INSTANCIAR - EN QUE POSICION - Y SU ROTACION DE INICIO
         Instantiate(particulas, transform.position, Quaternion.identity);
-        
+
         //UNA VEZ INSTANCIADO LAS PARTICULAS, DESTRUIMOS LA MONEDA
         Destroy(gameObject);
     }
