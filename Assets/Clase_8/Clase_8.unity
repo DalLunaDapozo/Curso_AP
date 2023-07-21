@@ -588,8 +588,8 @@ GameObject:
   m_Component:
   - component: {fileID: 473753168}
   - component: {fileID: 473753167}
-  - component: {fileID: 473753166}
   - component: {fileID: 473753169}
+  - component: {fileID: 473753166}
   m_Layer: 0
   m_Name: Camara
   m_TagString: MainCamera
@@ -655,8 +655,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473753165}
-  m_LocalRotation: {x: -0.07611754, y: -0.7029979, z: -0.07611753, w: 0.702998}
-  m_LocalPosition: {x: 18.17814, y: 3.740693, z: -6.5000005}
+  m_LocalRotation: {x: -0.07319309, y: -0.7033084, z: -0.07319307, w: 0.7033085}
+  m_LocalPosition: {x: 18.186684, y: 3.7804604, z: -6.5000014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1280,38 +1280,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1026860723
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1026860725}
-  m_Layer: 0
-  m_Name: Sonidos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1026860725
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026860723}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.50514, y: -0.30082273, z: 9.44059}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1390584445}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1120111593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,13 +2012,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390584444}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.50514, y: -0.30082273, z: 9.44059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1026860725}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1390584446
 AudioSource:
@@ -2066,7 +2034,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2498,7 +2466,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-142712
+  m_Name: pb_Mesh23744
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3628,8 +3596,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059978695}
-  m_LocalRotation: {x: 0.000009883195, y: -0.00000008940697, z: -0.000000007450581, w: 1}
-  m_LocalPosition: {x: 0.0000019073493, y: 0.00009619026, z: 0.0000054583343}
+  m_LocalRotation: {x: 0.000009454786, y: 0.0000001490116, z: 0.0000000372529, w: 1}
+  m_LocalPosition: {x: -0.0000023841933, y: 0.00009157795, z: -0.0000021688775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5961,8 +5929,8 @@ MonoBehaviour:
   fuerza_de_salto: 6
   en_el_suelo: 0
   clips:
+  - {fileID: 8300000, guid: d59197b9716a663479c889c2a136b9db, type: 3}
   - {fileID: 8300000, guid: 737f82a1516b24045aee851dda5de4c4, type: 3}
-  - {fileID: 0}
 --- !u!4 &5776591750308953300
 Transform:
   m_ObjectHideFlags: 0
