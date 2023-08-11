@@ -91,7 +91,7 @@ public class _MovimientoLateral : MonoBehaviour
         }
             
     }
-
+    
     //USAMOS OnCollisionExit() PARA HACER QUE en_el_suelo SEA FALSO CUANDO DEJAMOS DE ESTAR EN CONTACTO CON UN TAG DE TIPO Suelo
     private void OnCollisionExit(Collision collision)
     {
