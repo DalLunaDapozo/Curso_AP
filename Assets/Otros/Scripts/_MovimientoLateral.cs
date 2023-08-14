@@ -55,8 +55,6 @@ public class _MovimientoLateral : MonoBehaviour
         //ASI QUE LE ASIGNAMOS EL EJE HORIZONTAL
         eje_z = Input.GetAxis("Horizontal");
 
-        Salto();
-
         //SI HAY ANIMACIONES
         if (animaciones != null)
         {
@@ -79,6 +77,9 @@ public class _MovimientoLateral : MonoBehaviour
                 root.transform.localScale = new Vector3(100, 100, 100);
 
         }
+
+        //LLAMAR A LA FUNCION DE SALTO
+        Salto();
     }
 
     private void Salto()
@@ -98,10 +99,7 @@ public class _MovimientoLateral : MonoBehaviour
     private void FixedUpdate()
     {
         //USAMOS AddForce() PARA MOVER NUESTRO PERSONAJE DE COSTADO
-        //fisicas.AddForce(eje_z * velocidad_de_movimiento * transform.forward);
-        fisicas.velocity = new Vector3(eje_z * velocidad_de_movimiento, fisicas.velocity.y, fisicas.velocity.z);
-
-      
+        fisicas.AddForce(eje_z * velocidad_de_movimiento * transform.forward);
     }
 
     //USAMOS OnCollisionEnter() PARA HACER QUE en_el_suelo SEA VERDADERO CUANDO ENTRAMOS EN CONTACTO CON UN TAG DE TIPO Suelo

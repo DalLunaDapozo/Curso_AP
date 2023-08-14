@@ -834,7 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad_de_movimiento: 100
   fuerza_de_gravedad: 0
-  fuerza_de_salto: 20
+  fuerza_de_salto: 10
   en_el_suelo: 0
   clips: []
 --- !u!43 &233571672
