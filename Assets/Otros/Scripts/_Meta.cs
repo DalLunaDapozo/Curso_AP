@@ -15,7 +15,7 @@ public class _Meta : MonoBehaviour
     [SerializeField] private Image fondo_negro;
 
     //EL AUTO DEL JUGADOR, TENEMOS QUE REFERENCIARLO PARA PODER VOLVERLO A SU LUGAR DE ORIGEN
-    [SerializeField] private GameObject auto;
+    [SerializeField] private GameObject jugador;
     //POSICION A LA QUE VA A VOLVER EL JUGADOR
     [SerializeField] private Transform posicion_inicial;
 
@@ -27,7 +27,7 @@ public class _Meta : MonoBehaviour
         
         try
         {
-            auto = GameObject.Find("Auto");
+            jugador = GameObject.Find("Jugador");
             posicion_inicial = GameObject.Find("PosicionInicio").transform;
         }
         catch
@@ -81,7 +81,7 @@ public class _Meta : MonoBehaviour
         //CUANDO SE TAPA LA PANTALLA, DESACTIVAMOS LAS LETRAS
         cartel_victoria.gameObject.SetActive(false);
         //Y MOVEMOS EL AUTO A SU POSICION INICIAL
-        auto.transform.position = posicion_inicial.position;
+        jugador.transform.position = posicion_inicial.position;
         //REINICIAMOS LA VARIABLE TIME PARA REUTILIZARLA
         time = 0;
         //HACEMOS LO MISMO QUE ANTES PERO A LA INVERSA PARA VOLVER LA PANTALLA A LA NORMALIDAD

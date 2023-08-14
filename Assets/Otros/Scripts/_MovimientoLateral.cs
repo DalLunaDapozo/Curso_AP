@@ -10,6 +10,8 @@ public class _MovimientoLateral : MonoBehaviour
     //EJE PARA MOVER EL PERSONAJE PARA ADELANTE
     private float eje_z;
 
+    //FUERZA DE GRAVEDAD
+    [SerializeField] private float fuerza_de_gravedad;
     //VARIABLE QUE DETERMINA LA FUERZA DE SALTO
     [SerializeField] private float fuerza_de_salto;
     //VARIABLE BOOLEANA QUE DETERMINA SI ESTAMOS EN EL SUELO O NO
@@ -33,11 +35,18 @@ public class _MovimientoLateral : MonoBehaviour
     {
         //LLAMAMOS LOS COMPONENTES DE RIGIDBODY Y ANIMATOR
         fisicas = GetComponent<Rigidbody>();
-        animaciones = GetComponent<Animator>();
         controlador_sonidos = GetComponent<AudioSource>();
 
-        //A root LO BUSCAMOS ENTRE LOS OBJETOS HIJOS POR SU NOMBRE
-        root = transform.Find("Root");
+        try
+        {
+            animaciones = GetComponent<Animator>();
+            //A root LO BUSCAMOS ENTRE LOS OBJETOS HIJOS POR SU NOMBRE PARA ANIMACIONES
+            root = transform.Find("Root");
+        }
+        catch
+        {
+            Debug.Log("Sin Animator ni mesh");
+        }
     }
 
     void Update()
@@ -45,20 +54,35 @@ public class _MovimientoLateral : MonoBehaviour
         //COMO EL MOVIMIENTO VA A SER LATERAL, QUEREMOS USAR LAS TECLAS A Y D PARA MOVER NUESTRO PERSONAJE
         //ASI QUE LE ASIGNAMOS EL EJE HORIZONTAL
         eje_z = Input.GetAxis("Horizontal");
-  
-        //SI APRETAMOS UN INPUT PARA IR ADELANTE ACTIVAMOS LAS ANIMACIONES, SINO, LAS DESACTIVAMOS
-        if (eje_z != 0 && en_el_suelo)
-            animaciones.SetBool("moviendose", true);
-        else
-            animaciones.SetBool("moviendose", false);
-    
-        //SI VAMOS A LA IZQUIERDA; INVERTIMOS EL ROOT USANDO EL SCALE, SI LO PONEMOS EN NEGATIVO, LO DAMOS VUELTA
-        if(eje_z < 0)
-            root.transform.localScale = new Vector3(100, -100, 100);
-        //SI VAMOS A LA DERECHA; LO VOLVEMOS A SU ESCALA NORMAL
-        else if(eje_z > 0)
-            root.transform.localScale = new Vector3(100, 100, 100);
 
+        Salto();
+
+        //SI HAY ANIMACIONES
+        if (animaciones != null)
+        {
+
+            //ESTA LINEA ESTA CHEQUEANDO TODOS LOS FRAMES QUE LA VARIABLE saltando EN EL ANIMATOR SEA LO CONTRARIO A en_el_suelo, POR ESO TIENE UN "!"
+            //QUE REPRESENTA "LO CONTRARIO", ES DECIR QUE SI en_el_suelo ES VERDADERO, ENTONCES saltando VA A SER FALSO, Y VICEVERSA
+            animaciones.SetBool("saltando", !en_el_suelo);
+
+            //SI APRETAMOS UN INPUT PARA IR ADELANTE ACTIVAMOS LAS ANIMACIONES, SINO, LAS DESACTIVAMOS
+            if (eje_z != 0 && en_el_suelo)
+                animaciones.SetBool("moviendose", true);
+            else
+                animaciones.SetBool("moviendose", false);
+
+            //SI VAMOS A LA IZQUIERDA; INVERTIMOS EL ROOT USANDO EL SCALE, SI LO PONEMOS EN NEGATIVO, LO DAMOS VUELTA
+            if (eje_z < 0)
+                root.transform.localScale = new Vector3(100, -100, 100);
+            //SI VAMOS A LA DERECHA; LO VOLVEMOS A SU ESCALA NORMAL
+            else if (eje_z > 0)
+                root.transform.localScale = new Vector3(100, 100, 100);
+
+        }
+    }
+
+    private void Salto()
+    {
         //ACÁ ESTAMOS LLAMANDO AL INPUT DE SALTAR, ADEMAS en_el_suelo TIENE SER VERDADERO PARA QUE PODAMOS SALTAR
         if (Input.GetButtonDown("Jump") && en_el_suelo)
         {
@@ -67,18 +91,17 @@ public class _MovimientoLateral : MonoBehaviour
             //USAMOS AddForce() PARA IMPULSARNOS PARA ARRIBA CON transform.up Y USAMOS ForceMode.Impulse PARA QUE SEA UN IMPULSO Y NO UNA ACELARACIÓN
             fisicas.AddForce(fuerza_de_salto * transform.up, ForceMode.Impulse);
             //ACA VAMOS A IMPLEMENTAR EL SONIDO
-            ReproducirSonido("salto");
+            //ReproducirSonido("salto");
         }
-
-        //ESTA LINEA ESTA CHEQUEANDO TODOS LOS FRAMES QUE LA VARIABLE saltando EN EL ANIMATOR SEA LO CONTRARIO A en_el_suelo, POR ESO TIENE UN "!"
-        //QUE REPRESENTA "LO CONTRARIO", ES DECIR QUE SI en_el_suelo ES VERDADERO, ENTONCES saltando VA A SER FALSO, Y VICEVERSA
-        animaciones.SetBool("saltando", !en_el_suelo);
     }
 
     private void FixedUpdate()
     {
         //USAMOS AddForce() PARA MOVER NUESTRO PERSONAJE DE COSTADO
-        fisicas.AddForce(eje_z * velocidad_de_movimiento * transform.forward);
+        //fisicas.AddForce(eje_z * velocidad_de_movimiento * transform.forward);
+        fisicas.velocity = new Vector3(eje_z * velocidad_de_movimiento, fisicas.velocity.y, fisicas.velocity.z);
+
+      
     }
 
     //USAMOS OnCollisionEnter() PARA HACER QUE en_el_suelo SEA VERDADERO CUANDO ENTRAMOS EN CONTACTO CON UN TAG DE TIPO Suelo
@@ -87,7 +110,7 @@ public class _MovimientoLateral : MonoBehaviour
         if (collision.gameObject.CompareTag("Suelo"))
         {
             en_el_suelo = true;
-            ReproducirSonido("aterrizaje");
+            //ReproducirSonido("aterrizaje");
         }
             
     }

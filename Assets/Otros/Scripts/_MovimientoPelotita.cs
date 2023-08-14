@@ -5,7 +5,7 @@ public class _MovimientoTopDown : MonoBehaviour
     [SerializeField] private float velocidad_de_movimiento;
 
     private Rigidbody fisicas;
-    private Vector3 ejes;
+    private float eje_x;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class _MovimientoTopDown : MonoBehaviour
 
     void Update()
     {
-        ejes = new Vector3(Input.GetAxis("Horizontal"), 0 , Input.GetAxis("Vertical"));
+        eje_x = Input.GetAxis("Horizontal");
     }
 
     private void FixedUpdate()
@@ -24,6 +24,6 @@ public class _MovimientoTopDown : MonoBehaviour
 
     private void MovimientoBasico()
     {
-        fisicas.velocity = ejes * velocidad_de_movimiento * Time.deltaTime;
+        fisicas.velocity = new Vector3(eje_x * velocidad_de_movimiento * Time.deltaTime, fisicas.velocity.y, fisicas.velocity.z);
     }
 }

@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cartel_victoria: {fileID: 992551731}
   fondo_negro: {fileID: 1227658761}
-  auto: {fileID: 0}
+  jugador: {fileID: 0}
   posicion_inicial: {fileID: 0}
 --- !u!4 &694094397 stripped
 Transform:
@@ -3765,7 +3765,7 @@ GameObject:
   - component: {fileID: 1941280826794889438}
   - component: {fileID: 1941280826794889437}
   m_Layer: 0
-  m_Name: Auto
+  m_Name: Jugador
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
