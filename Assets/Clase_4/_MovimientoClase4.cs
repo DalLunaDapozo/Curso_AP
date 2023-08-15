@@ -1,31 +1,50 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class _MovimientoClase4: MonoBehaviour
 {
-    public float velocidad_de_movimiento = 5f;
+    public float moveSpeed = 5f;
     public float jumpForce = 10f;
 
-    private Rigidbody2D rb;
-    private bool isGrounded;
+    public float eje_mov;
+
+    public float maxJumpDuration = 1f;
+
+    private float jumpTime;
+
+    private Rigidbody rb;
+    public bool isGrounded;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         // Verificar si el personaje está en el suelo
-        isGrounded = Physics2D.OverlapCircle(transform.position, 0.2f, LayerMask.GetMask("Ground"));
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 2f);
+
 
         // Movimiento horizontal
-        float moveX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveX * velocidad_de_movimiento, rb.velocity.y);
+        eje_mov = Input.GetAxis("Horizontal");
+       
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpTime = Time.time; // Iniciar el contador de tiempo de salto
+        }
 
         // Salto
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump") && !isGrounded && (Time.time - jumpTime) < maxJumpDuration)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 movement = new Vector3(eje_mov, rb.velocity.y, rb.velocity.z) * moveSpeed * Time.deltaTime;
+        rb.MovePosition(transform.position + movement);
     }
 }
