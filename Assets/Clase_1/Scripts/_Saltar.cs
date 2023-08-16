@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class _Saltar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float fuerza_de_salto;
+    private Rigidbody fisicas;
+
+    private void Start()
     {
-        
+        fisicas = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            fisicas.AddForce(Vector3.up * fuerza_de_salto);
+        }
     }
 }
