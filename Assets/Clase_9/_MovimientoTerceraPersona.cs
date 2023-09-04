@@ -41,7 +41,10 @@ public class _MovimientoTerceraPersona : MonoBehaviour
         {
             animaciones.SetBool("moviendose", false);
         }
+    }
 
+    private void FixedUpdate()
+    {
         //AL FINAL, MOVEMOS NUESTRO PERSONAJE CON VELOCITY
         fisicas.velocity = ejes * velocidad_de_movimiento * Time.deltaTime;
     }

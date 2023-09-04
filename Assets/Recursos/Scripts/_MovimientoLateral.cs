@@ -24,8 +24,6 @@ public class _MovimientoLateral : MonoBehaviour
     //ACA LLAMAMOS LA PARTE FISICA (EL MESH) PARA ROTARLO CUANDO VAMOS A LA IZQUIERDA
     private Transform root;
     
-    private AudioSource controlador_sonidos;
-    [SerializeField] private List<AudioClip> clips;
 
     //LOS #region HAY QUE CERRARLOS CON #endregion 
     #endregion
@@ -35,7 +33,6 @@ public class _MovimientoLateral : MonoBehaviour
     {
         //LLAMAMOS LOS COMPONENTES DE RIGIDBODY Y ANIMATOR
         fisicas = GetComponent<Rigidbody>();
-        controlador_sonidos = GetComponent<AudioSource>();
 
         try
         {
@@ -92,7 +89,7 @@ public class _MovimientoLateral : MonoBehaviour
             //USAMOS AddForce() PARA IMPULSARNOS PARA ARRIBA CON transform.up Y USAMOS ForceMode.Impulse PARA QUE SEA UN IMPULSO Y NO UNA ACELARACIÓN
             fisicas.AddForce(fuerza_de_salto * transform.up, ForceMode.Impulse);
             //ACA VAMOS A IMPLEMENTAR EL SONIDO
-            //ReproducirSonido("salto");
+          
         }
     }
 
@@ -108,7 +105,7 @@ public class _MovimientoLateral : MonoBehaviour
         if (collision.gameObject.CompareTag("Suelo"))
         {
             en_el_suelo = true;
-            //ReproducirSonido("aterrizaje");
+       
         }
             
     }
@@ -120,12 +117,6 @@ public class _MovimientoLateral : MonoBehaviour
             en_el_suelo = false;
     }
 
-    private void ReproducirSonido(string nombre_sonido)
-    {
-        int nuevo_clip = clips.FindIndex(i => i.name == nombre_sonido);
-        controlador_sonidos.clip = clips[nuevo_clip];
-        controlador_sonidos.Play();
-    }
 
     #endregion
 }

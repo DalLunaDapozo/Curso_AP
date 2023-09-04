@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 58542493}
   - component: {fileID: 58542492}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: LuzGlobal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64154d5d80792f94f86e62d53e3aea66, type: 2}
+  - {fileID: 2100000, guid: 21bdfd5bbd966bc449ca6e87a89f33ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -567,7 +567,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2308
+  m_Name: pb_Mesh42832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 525506797}
   - component: {fileID: 525506800}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camara
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2310,7 +2310,6 @@ GameObject:
   - component: {fileID: 5798409544970452246}
   - component: {fileID: 5798409544977896183}
   - component: {fileID: 5798409544977896184}
-  - component: {fileID: 5798409544977896185}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Untagged
@@ -2906,7 +2905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db62dd0c109526d4480fa77f40a818ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad_de_movimiento: 1100
+  velocidad_de_movimiento: 200
   velocidad_de_rotacion: 5
 --- !u!54 &5798409544977896184
 Rigidbody:
@@ -2924,27 +2923,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!95 &5798409544977896185
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5798409544970608950}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 7ee836d470c7821438a87a304a93f52f, type: 3}
-  m_Controller: {fileID: 9100000, guid: 535893faab793354f8df3994e05586b5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!137 &5798409544982178870
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -2965,7 +2943,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33efe5ecb5cb1854fae8b30f9a70025d, type: 2}
+  - {fileID: 2100000, guid: b7133b195d603494f8468a8dd825c2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2990,7 +2968,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 7ee836d470c7821438a87a304a93f52f, type: 3}
+  m_Mesh: {fileID: -4910155946660035214, guid: 0eea9c142991967488c09a150620f47d, type: 3}
   m_Bones:
   - {fileID: 5798409544970452228}
   - {fileID: 5798409544970452280}
